@@ -42,10 +42,11 @@ public class GithubProvider {
                 .build();
         try {
             Response response = client.newCall(request).execute();
+           // Thread.sleep(3000);
             String str = response.body().string();
             GithubUser githubUser = JSON.parseObject(str, GithubUser.class);
             return githubUser;
-        } catch (IOException e) {
+        } catch (IOException  e) {
             e.printStackTrace();
         }
         return null;
